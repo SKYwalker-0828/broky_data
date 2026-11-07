@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.sqlite3-journal
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local prototype data / generated artifacts
+local-data/
+demo-output/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
