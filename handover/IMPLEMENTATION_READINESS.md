@@ -19,7 +19,11 @@
 
 ## 工具和许可证
 
-当前实现只使用本仓库代码与 Python 标准库；没有集成 Arches、Frictionless、DVC、FAISS、DuckDB、Superset、WeasyPrint 或 Scribus，因此本轮没有新增第三方软件许可证义务。候选项目的上游许可证信息仍见 [LICENSE_REGISTER.md](../LICENSE_REGISTER.md)。项目自身许可证未决定。
+当前实现只使用本仓库代码与 Python 标准库；没有集成 Arches、OpenRefine、Frictionless、DVC、FAISS、DuckDB、Superset、WeasyPrint 或 Scribus，因此当前运行路径没有这些第三方运行依赖。候选项目的上游许可证信息仍见 [LICENSE_REGISTER.md](../LICENSE_REGISTER.md)。项目自身许可证未决定。
+
+## 可运行性验证
+
+当前全量测试为 24 项；包括合成端到端演练、Observation/Truth 越权检查、旧 SQLite 搜索向量迁移保留与迁移失败回滚。CLI `--help` 和 Python 字节码编译检查通过。操作入口仅为 CLI，没有图形管理界面；测试身份由调用者传入，不可作为生产认证。
 
 ## 正式启用
 

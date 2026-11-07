@@ -6,11 +6,12 @@
 
 ```mermaid
 flowchart LR
+  M00["M00 原型契约<br/>broky_data.*.v1"]
   SRC["实采或合成文件"] --> M01["M01 文件资产库<br/>SHA-256 内容寻址"]
   SRC --> M02["M02 来源登记<br/>SQLite"]
   M01 --> M02
   M02 --> M03{"M03 结构、授权与用途校验"}
-  M03 -->|失败或未知| HOLD["保留失败/阻断记录<br/>处理后重新校验"]
+  M03 -->|FAIL/BLOCKED| HOLD["记录失败/阻断<br/>操作人员处置后重跑"]
   M03 -->|通过| M04["M04 冻结快照<br/>JSON manifest + SQLite"]
   M04 --> OBS["Observation 快照"]
   M04 -->|仅 evaluation| GT["Truth/GT 快照"]
@@ -25,8 +26,16 @@ flowchart LR
   M05 -.-> M09
   M07 -.-> M09
   M08 -.-> M09
-  M09 -->|未通过| HOLD
+  M09 -->|人工查看 FAIL/BLOCKED 收据| HOLD
   GT -. "只经评测角色授权；不供模型检索" .-> JOIN["受控评测 join 记录"]
+  M00 -. "版本化测试字段" .-> M02
+  M00 -.-> M03
+  M00 -.-> M04
+  M00 -.-> M05
+  M00 -.-> M09
+  M02 -.-> M09
+  M06 -.-> M09
+  OBS -. "受控评测引用" .-> JOIN
 ```
 
 虚线表示审计/受控评测关联，不表示将 Truth/GT 暴露给普通流程。`demo` 使用合成记录演练接入、审核、快照、关系、检索、统计、输出和验收。

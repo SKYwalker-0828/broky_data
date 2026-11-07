@@ -14,8 +14,8 @@
 
 ## 项目/数据库/许可证
 
-- **Arches：** 推荐用于登记/关系人工审核的共用工作流。官方[合规指南](https://www.archesproject.org/license-compliance/)要求包清单标注 `AGPL-3.0-only`，但 [PyPI 8.1.6 元数据](https://pypi.org/project/arches/8.1.6/)列为 `AGPL-3.0-or-later`，须按实际源码/发行包核实，不自行择一认定。Arches 通用资源关系不是 RelicWeave 语义层；审核通过后必须由项目验证器映射/校验并导出版本化 MEHR/关系包。
-- **关系包/权威契约：** 由经人工审核、项目规则校验后的版本化 MEHR/关系包承载；具体文件格式与落盘后端未选。Arches 保存审核工作流记录，但未经导出校验不作为唯一真值；原始 Truth/GT 包不存入 Arches。
+- **Arches（未集成候选）：** 可供未来评估为登记/关系审核工作流，但本原型未采用。若后续接入，M02 与 M05 共用服务。官方[合规指南](https://www.archesproject.org/license-compliance/)要求包清单标注 `AGPL-3.0-only`，但 [PyPI 8.1.6 元数据](https://pypi.org/project/arches/8.1.6/)列为 `AGPL-3.0-or-later`，须按实际源码/发行包核实，不自行择一认定。Arches 通用资源关系不是 RelicWeave 语义层；审核通过后必须由项目验证器映射/校验并导出版本化 MEHR/关系包。
+- **关系包/权威契约：** 由经人工审核、项目规则校验后的版本化 MEHR/关系包承载；具体文件格式与落盘后端未选。若未来采用 Arches，可保存审核工作流记录，但未经导出校验不作为唯一真值；原始 Truth/GT 包不存入 Arches。
 - 不将 FAISS 或分析 Parquet 作为关系主记录。
 
 ## 正式接入前的目标实现
