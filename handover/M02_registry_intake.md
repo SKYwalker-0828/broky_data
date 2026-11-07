@@ -14,10 +14,10 @@
 
 ## 项目/数据库/许可证
 
-- **Arches：** 试点推荐用于业务登记、资源记录和人工工作流；官方[合规指南](https://www.archesproject.org/license-compliance/)要求包清单标注 `AGPL-3.0-only`，但 [PyPI 8.1.6 元数据](https://pypi.org/project/arches/8.1.6/)列为 `AGPL-3.0-or-later`。该差异须按实际源码/发行包核实，不自行择一认定。与 M05 共用同一独立服务，不据模块数量部署多份。具体版本、依赖发行物、部署方式及 Arches 数据模型到 RelicWeave 对象的映射仍待试点验证。
+- **Arches（未集成候选）：** 曾评估用于业务登记、资源记录和人工工作流；当前未决定采用。若后续试点，M02 与 M05 可共用一套独立服务。官方[合规指南](https://www.archesproject.org/license-compliance/)要求包清单标注 `AGPL-3.0-only`，但 [PyPI 8.1.6 元数据](https://pypi.org/project/arches/8.1.6/)列为 `AGPL-3.0-or-later`。该差异须按实际源码/发行包核实，不自行择一认定。具体版本、依赖发行物、部署方式及数据模型映射仍待验证。
 - **OpenRefine：** 导入前表格清理可选工具；上游 [`LICENSE.txt`](https://github.com/OpenRefine/OpenRefine/blob/master/LICENSE.txt) 为 BSD-3-Clause。它不是登记台账的权威数据库。
 - Arches 官方 8.1 依赖文档列出 PostgreSQL/PostGIS、Elasticsearch、GDAL/GEOS、Python、Node 等依赖；实际锁定版本、发行包与部署方式须按试点版本核定。此处不指定 Arches 以外的独立登记数据库。
-- Arches 在本设计中只承载登记/审核工作流和便于检索的业务记录；关系结果须经项目自定义规则校验并导出为版本化契约数据，未经转换的 Arches 记录不作为唯一关系真值。
+- 若未来采用 Arches，它只承载登记/审核工作流和便于检索的业务记录；关系结果须经项目自定义规则校验并导出为版本化契约数据，未经转换的 Arches 记录不作为唯一关系真值。
 - Arches 与 Scribus 分别作为服务端工作流和桌面排版步骤独立运行；两者不共享容器、安装包、代码或运行时依赖。该边界不是许可证冲突判断，见 [许可证清单](../LICENSE_REGISTER.md) 和 [总体复核](../REVIEW.md)。
 
 ## 生产候选实现方法

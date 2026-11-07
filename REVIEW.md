@@ -7,7 +7,7 @@
 
 - M00–M09 由单一 Python 应用提供独立逻辑模块。SQLite 保存业务元数据；M01 使用 SHA-256 内容寻址文件仓库，并将 Observation/Truth 分开存储。
 - M02 使用本地登记/审核表，不部署 Arches；M03 使用标准库校验规则；M04 使用 SQLite + JSON 快照；M05 使用人工关系事件；M06 使用可版本化精确 cosine 索引；M07 使用 SQLite 聚合；M08 输出内部 HTML；M09 输出 JSON 收据并记录本地哈希链。
-- `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m unittest discover -s tests -v` 当前通过 23 项测试；`python3 -m broky_data ... demo` 完成合成端到端演练。
+- `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m unittest discover -s tests -v` 当前通过 24 项测试；覆盖旧搜索向量迁移保留与失败回滚。`python3 -m broky_data ... demo` 完成合成端到端演练。
 - 应用角色由调用方提供，不具备真实认证。Truth 目录 ACL 和数据库角色检查不构成独立物理安全边界；哈希链不是签名或不可篡改日志。
 - 逐模块限制和正式启用门槛见 [PRE_PRODUCTION_READINESS.md](PRE_PRODUCTION_READINESS.md)。
 
@@ -35,7 +35,7 @@
 
 ## M01 原型可用性复核
 
-截至 2026-11-07，M01 支持流式写入、按内容 SHA-256 寻址、去重、读取、存在检查和重算摘要；Observation/Truth 使用不同根目录，POSIX 管理目录权限为 700、数据库为 600。M01 原有 9 项测试覆盖写入、完整性和路径边界；整体 23 项测试另覆盖模块权限和合成端到端流程。上述是本地适配行为，不覆盖生产规模、加密密钥、独立 Truth 主机、备份恢复或多用户身份。
+截至 2026-11-07，M01 支持流式写入、按内容 SHA-256 寻址、去重、读取、存在检查和重算摘要；Observation/Truth 使用不同根目录，POSIX 管理目录权限为 700、数据库为 600。M01 的 9 项测试覆盖写入、完整性和路径边界；整体 24 项测试另覆盖模块权限、旧索引迁移与合成端到端流程。数据库 v1 到 v2 的本地迁移会保留旧向量，并在失败时回滚；这不替代生产备份、迁移演练或恢复预案。上述均是本地适配行为，不覆盖生产规模、加密密钥、独立 Truth 主机、备份恢复或多用户身份。
 
 ## Arches 版本与运维影响
 

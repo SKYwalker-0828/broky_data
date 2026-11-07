@@ -19,7 +19,7 @@
 - **Apache Superset：** 看板候选，上游 [`LICENSE.txt`](https://github.com/apache/superset/blob/master/LICENSE.txt) 为 Apache-2.0；上游发行物还列有独立许可子组件/字体。
 - 关系事实主库并未选择；分析产物不能回写成为关系权威记录。
 
-## 拟议实现方法
+## 正式接入前的目标实现
 
 1. 将已冻结快照或经授权的只读导出交给分析 adapter，保留输入版本和过滤条件。
 2. 使用 Parquet 作为大批量统计交换/保存格式，DuckDB 做离线查询；如果规模/并发要求不适配，再另行评估替换，不提前添加服务器数据库。

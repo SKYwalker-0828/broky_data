@@ -8,6 +8,7 @@
 - SQLite 保存业务登记、快照成员、关系历史、派生向量和审计记录；M01 按 SHA-256 保存文件对象。
 - Observation 与 Truth/GT 使用分开的资产目录和快照目录，并由应用角色策略限制读取。该隔离不是独立主机、密钥或操作系统账户级的生产安全边界。
 - M00–M09 均有本地测试期实现。字段、状态和角色是 `broky_data.*.v1` 原型契约；接入正式数据前须按 [正式启用前改造清单](PRE_PRODUCTION_READINESS.md) 复核。
+- 当前只提供 CLI，没有图形管理界面；用 `python3 -m broky_data --help` 查看可执行操作。
 - VesselForge 已废弃，不作为入口或依赖。Arches、OpenRefine、Frictionless、DVC、FAISS、DuckDB、Superset、WeasyPrint、Scribus 均未作为当前代码依赖。
 
 ## 运行
@@ -48,7 +49,7 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m unittest discover -s tests -
 | M08 | 授权校验后的内部 HTML 标本卡/统计报告 | [M08](handover/M08_outputs.md) |
 | M09 | 分离质量/功能结果的 JSON 收据和哈希链日志 | [M09](handover/M09_acceptance_audit.md) |
 
-更多说明：[总体架构](ARCHITECTURE.md)、[可行性复核](REVIEW.md)、[第三方许可证清单](LICENSE_REGISTER.md)、[正式启用前改造清单](PRE_PRODUCTION_READINESS.md)。
+更多说明：[总体架构](ARCHITECTURE.md)、[可行性复核](REVIEW.md)、[第三方许可证清单](LICENSE_REGISTER.md)、[正式启用前改造清单](PRE_PRODUCTION_READINESS.md)、[本次更新说明](UPDATE_NOTES.md)。
 
 ## 安全和范围边界
 
